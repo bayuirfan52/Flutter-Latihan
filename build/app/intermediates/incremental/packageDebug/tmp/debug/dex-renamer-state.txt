@@ -1,0 +1,4 @@
+#Fri Jun 14 09:30:08 WIB 2019
+base.0=/home/bayuirfan/Documents/Tugas/Flutter/latihan/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
