@@ -52,7 +52,7 @@ class HalDua extends StatelessWidget {
         child: new IconButton(
           icon: Icon(Icons.speaker),
           onPressed: (){
-            Navigator.pushNamed(context, '/Halsatu')
+            Navigator.pushNamed(context, '/Halsatu');
           },),
         ),
     );
