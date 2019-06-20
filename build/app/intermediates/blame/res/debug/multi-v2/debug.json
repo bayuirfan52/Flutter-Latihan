@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bayuirfan/Documents/Tugas/Flutter/latihan/build/app/intermediates/res/merged/debug/values_values.arsc.flat",
+            "outputFile": "/home/bayuirfan/Documents/Tugas/Flutter/Flutter-Latihan/build/app/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "/home/bayuirfan/Documents/Tugas/Flutter/latihan/android/app/src/main/res/values/styles.xml",
+                    "source": "/home/bayuirfan/Documents/Tugas/Flutter/Flutter-Latihan/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

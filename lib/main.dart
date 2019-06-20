@@ -1,60 +1,64 @@
 import 'package:flutter/material.dart';
+import './hal_komputer.dart' as komputer;
+import './hal_speaker.dart' as speaker;
+import './hal_headset.dart' as headset;
+import './hal_radio.dart' as radio;
 
 void main() {
   runApp(new MaterialApp(
     title: "Flutter Demo",
-    home: new HalSatu(),
-    routes: <String, WidgetBuilder>{
-      '/Halsatu' : (BuildContext context) => new HalSatu(),
-      '/Haldua' : (BuildContext context) => new HalDua()
-    },
+    home: new Home(),
   ));
 }
 
-class HalSatu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      backgroundColor: Colors.yellow[50],
-      appBar: new AppBar(
-        backgroundColor: Colors.lightGreen[400],
-        leading: new Icon(Icons.home),
-        title: new Center(
-          child: new Text("Hal Satu"),
-        ),
-        actions: <Widget>[new Icon(Icons.search)],
-      ),
-      body: new Center(
-        child: new IconButton(
-          icon: Icon(Icons.headset),
-          onPressed: (){
-            Navigator.pushNamed(context, '/Haldua');
-          },),
-        ),
-    );
-  }
+class Home extends StatefulWidget {
+  Home({Key key}) : super(key: key);
+
+  _HomeState createState() => _HomeState();
 }
 
-class HalDua extends StatelessWidget {
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
+
+  TabController tabController;
+
+  @override
+  void initState() {
+    tabController = new TabController(vsync: this, length: 4);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.yellow[50],
       appBar: new AppBar(
-        backgroundColor: Colors.lightGreen[400],
-        leading: new Icon(Icons.home),
-        title: new Center(
-          child: new Text("Hal Dua"),
+        backgroundColor: Colors.amber,
+        title: new Text("Flutter Tab bar"),
+        bottom: new TabBar(
+          controller: tabController,
+          tabs: <Widget>[
+            new Tab(icon: new Icon(Icons.computer), text: "Komputer",),
+            new Tab(icon: new Icon(Icons.speaker), text: "Speaker"),
+            new Tab(icon: new Icon(Icons.headset), text: "Headset"),
+            new Tab(icon: new Icon(Icons.radio), text: "Radio")
+          ],
         ),
-        actions: <Widget>[new Icon(Icons.search)],
       ),
-      body: new Center(
-        child: new IconButton(
-          icon: Icon(Icons.speaker),
-          onPressed: (){
-            Navigator.pushNamed(context, '/Halsatu');
-          },),
-        ),
+
+      body: new TabBarView(
+        controller: tabController,
+        children: <Widget>[
+          new komputer.Komputer(),
+          new speaker.Speaker(),
+          new headset.Headset(),
+          new radio.Radio()
+        ],
+      ),
     );
   }
 }
